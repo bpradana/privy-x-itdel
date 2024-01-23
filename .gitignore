@@ -1,3 +1,4 @@
 archive/
 mc_1/
 .DS_Store
+*.pyc
