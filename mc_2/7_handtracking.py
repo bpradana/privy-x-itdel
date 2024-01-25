@@ -334,7 +334,7 @@ class HandTracking:
         return False
 
     def _cursor_easing(
-        self, cursor_x: int, cursor_y: int, easing: float = 0.05
+        self, cursor_x: float, cursor_y: float, easing: float = 0.5
     ) -> None:
         self.cursor_x += (cursor_x - self.cursor_x) * easing
         self.cursor_y += (cursor_y - self.cursor_y) * easing
@@ -345,8 +345,12 @@ class HandTracking:
         for palm_coordinate, hand_landmarks in zip(
             self.palm_coordinates, self.multi_hand_landmarks_processed
         ):
-            cursor_x = palm_coordinate["x"] / self.screen_width
-            cursor_y = palm_coordinate["y"] / self.screen_height
+            self._cursor_easing(
+                palm_coordinate["x"] / self.screen_width,
+                palm_coordinate["y"] / self.screen_height,
+            )
+            cursor_x = self.cursor_x
+            cursor_y = self.cursor_y
 
             if self.click == self._is_pinch(hand_landmarks):
                 hand_events.append(
