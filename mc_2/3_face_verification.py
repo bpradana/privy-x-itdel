@@ -4,9 +4,9 @@ from deepface import DeepFace
 from helpers.draw import draw_verification_result
 
 if __name__ == "__main__":
-    path_img_1 = "images/rdj.jpg"
-    path_img_2 = "images/tony.jpg"
-    # path_img_2 = "img3.jpg"
+    path_img_1 = "images/jeremy1.jpg"
+    path_img_2 = "images/jeremy2.jpg"
+    path_img_2 = "images/james.jpg"
 
     # read images
     img_1 = cv2.imread(path_img_1)

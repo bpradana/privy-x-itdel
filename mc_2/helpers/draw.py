@@ -44,7 +44,7 @@ def draw_bbox_face_detection(frame, face_object):
 
     cv2.putText(
         frame,
-        str(face_object["confidence"]),
+        f"{face_object['confidence']*100:.2f}%",
         (x + 5, y - 5),
         cv2.FONT_HERSHEY_SIMPLEX,
         1,
@@ -80,7 +80,7 @@ def draw_verification_result(img1, img2, result):
         (int(frame_width / 2) - 50, int(frame_height / 2)),
         cv2.FONT_HERSHEY_SIMPLEX,
         1,
-        (0, 255, 0),
+        (0, 255, 0) if result["verified"] else (0, 0, 255),
         2,
     )  # write distance on top of bbox
 

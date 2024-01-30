@@ -4,7 +4,7 @@ from deepface import DeepFace
 from helpers.draw import draw_bbox_face_detection
 
 if __name__ == "__main__":
-    path_img = "images/peter.jpg"
+    path_img = "images/richard.jpg"
 
     # read images
     img_1 = cv2.imread(path_img)
